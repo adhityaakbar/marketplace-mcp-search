@@ -33,8 +33,9 @@ def search_marketplace(req: SearchRequest):
             "gotoOptions": {"waitUntil": "networkidle0", "timeout": 60000}
         }).encode()
         
+        # Connect to browserless container locally on port 3000
         http_req = urllib.request.Request(
-            f"http://192.168.100.19:3000/content?{query_params}",
+            f"http://127.0.0.1:3000/content?{query_params}",
             data=req_data,
             headers={"Content-Type": "application/json"}
         )
